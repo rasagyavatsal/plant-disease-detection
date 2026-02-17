@@ -8,15 +8,18 @@ module.exports = {
   theme: {
     extend: {
       colors: {
-        brand: {
-          50: "#f0fdf4",
-          100: "#dcfce7",
-          200: "#bbf7d0",
-          500: "#22c55e",
-          600: "#16a34a",
-          700: "#15803d",
-          900: "#14532d",
-        },
+        bg: '#0c0f14',
+        surface: '#151921',
+        'surface-elevated': '#1c2230',
+        border: '#252d3b',
+        'border-subtle': '#1e2636',
+        'text-primary': '#f0f2f5',
+        'text-secondary': '#8b95a8',
+        'text-tertiary': '#5c6578',
+        accent: '#2dd4a8',
+        'accent-dim': '#1a9e7a',
+        success: '#34d399',
+        error: '#f87171',
       },
     },
   },

@@ -3,7 +3,6 @@ import {
   View,
   Text,
   Image,
-  FlatList,
   TouchableOpacity,
   ScrollView,
 } from "react-native";
@@ -29,23 +28,32 @@ export default function ResultsScreen() {
 
   if (!result) {
     return (
-      <View className="flex-1 items-center justify-center bg-green-50 p-5">
-        <Text className="text-lg text-gray-500">No results available</Text>
+      <View className="flex-1 items-center justify-center bg-bg px-5">
+        <View className="w-14 h-14 rounded-2xl bg-surface-elevated items-center justify-center mb-4">
+          <Text className="text-2xl">🔍</Text>
+        </View>
+        <Text className="text-[15px] text-text-tertiary text-center mb-5">
+          No results available
+        </Text>
         <TouchableOpacity
           onPress={() => router.back()}
-          className="mt-4 bg-green-600 rounded-xl py-3 px-8"
+          className="bg-accent rounded-xl py-3 px-8"
+          activeOpacity={0.8}
         >
-          <Text className="text-white font-semibold">Go Back</Text>
+          <Text className="text-bg font-semibold text-[15px]">Go Back</Text>
         </TouchableOpacity>
       </View>
     );
   }
 
   return (
-    <ScrollView className="flex-1 bg-green-50" contentContainerClassName="p-5 pb-10">
+    <ScrollView
+      className="flex-1 bg-bg"
+      contentContainerClassName="px-5 pt-4 pb-10"
+    >
       {/* Image Preview */}
       {imageUri ? (
-        <View className="bg-white rounded-2xl overflow-hidden mb-5 shadow-sm">
+        <View className="bg-surface rounded-2xl overflow-hidden mb-5 border border-border-subtle">
           <Image
             source={{ uri: imageUri }}
             className="w-full h-56"
@@ -56,18 +64,20 @@ export default function ResultsScreen() {
 
       {/* Top Prediction */}
       {result.top_prediction && (
-        <View className="mb-5">
+        <View className="mb-4">
           <PredictionCard prediction={result.top_prediction} isTop />
         </View>
       )}
 
       {/* All Predictions */}
-      <View className="bg-white rounded-2xl p-5 shadow-sm mb-5">
-        <Text className="text-lg font-semibold text-gray-800 mb-4">
-          All Predictions
-        </Text>
-        <View className="gap-3">
-          {result.predictions.slice(0, MAX_TOP_N).map((pred, index) => (
+      <View className="bg-surface rounded-2xl border border-border-subtle overflow-hidden mb-5">
+        <View className="px-5 pt-4 pb-3">
+          <Text className="text-[11px] font-semibold text-text-tertiary uppercase tracking-widest">
+            Other Possibilities
+          </Text>
+        </View>
+        <View className="px-5 pb-5 gap-2.5">
+          {result.predictions.slice(1, MAX_TOP_N).map((pred, index) => (
             <PredictionCard key={index} prediction={pred} />
           ))}
         </View>
@@ -76,10 +86,12 @@ export default function ResultsScreen() {
       {/* New Scan Button */}
       <TouchableOpacity
         onPress={() => router.back()}
-        className="bg-green-600 rounded-xl py-4 items-center"
+        className="bg-surface border border-border-subtle rounded-xl py-4 items-center"
         activeOpacity={0.8}
       >
-        <Text className="text-white font-bold text-lg">New Scan</Text>
+        <Text className="text-text-secondary font-semibold text-[15px]">
+          New Scan
+        </Text>
       </TouchableOpacity>
     </ScrollView>
   );

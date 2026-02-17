@@ -1,33 +1,17 @@
 export const colors = {
-  green: {
-    50: "#f0fdf4",
-    100: "#dcfce7",
-    200: "#bbf7d0",
-    500: "#22c55e",
-    600: "#16a34a",
-    700: "#15803d",
-    900: "#14532d",
-  },
-  gray: {
-    50: "#f9fafb",
-    100: "#f3f4f6",
-    200: "#e5e7eb",
-    300: "#d1d5db",
-    400: "#9ca3af",
-    500: "#6b7280",
-    600: "#4b5563",
-    700: "#374151",
-    800: "#1f2937",
-    900: "#111827",
-  },
-  red: {
-    50: "#fef2f2",
-    100: "#fee2e2",
-    500: "#ef4444",
-    600: "#dc2626",
-    700: "#b91c1c",
-    900: "#7f1d1d",
-  },
+  bg: "#0c0f14",
+  surface: "#151921",
+  surfaceElevated: "#1c2230",
+  border: "#252d3b",
+  borderSubtle: "#1e2636",
+  textPrimary: "#f0f2f5",
+  textSecondary: "#8b95a8",
+  textTertiary: "#5c6578",
+  accent: "#2dd4a8",
+  accentDim: "#1a9e7a",
+  success: "#34d399",
+  error: "#f87171",
+  errorBg: "rgba(248, 113, 113, 0.08)",
   white: "#ffffff",
 } as const;
 
@@ -35,26 +19,31 @@ export const spacing = {
   xs: 4,
   sm: 8,
   md: 16,
-  lg: 24,
-  xl: 32,
-  xxl: 48,
+  lg: 20,
+  xl: 24,
+  xxl: 32,
 } as const;
 
 export const typography = {
   heading: {
-    fontSize: 28,
-    fontWeight: "700" as const,
+    fontSize: 26,
+    fontWeight: "800" as const,
   },
   subheading: {
-    fontSize: 20,
+    fontSize: 18,
     fontWeight: "600" as const,
   },
   body: {
-    fontSize: 16,
+    fontSize: 15,
     fontWeight: "400" as const,
   },
   caption: {
-    fontSize: 13,
-    fontWeight: "400" as const,
+    fontSize: 12,
+    fontWeight: "500" as const,
+  },
+  label: {
+    fontSize: 11,
+    fontWeight: "600" as const,
+    letterSpacing: 0.8,
   },
 } as const;

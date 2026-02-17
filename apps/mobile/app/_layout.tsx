@@ -7,20 +7,20 @@ import "../global.css";
 export default function RootLayout() {
   return (
     <SafeAreaProvider>
-      <StatusBar style="dark" />
+      <StatusBar style="light" />
       <Stack
         screenOptions={{
-          headerStyle: { backgroundColor: "#ffffff" },
-          headerTintColor: "#111827",
-          headerTitleStyle: { fontWeight: "700" },
-          contentStyle: { backgroundColor: "#f0fdf4" },
+          headerStyle: { backgroundColor: "#0c0f14" },
+          headerTintColor: "#f0f2f5",
+          headerTitleStyle: { fontWeight: "700", fontSize: 17 },
+          headerShadowVisible: false,
+          contentStyle: { backgroundColor: "#0c0f14" },
         }}
       >
         <Stack.Screen
           name="index"
           options={{
             title: "CropIntel",
-            headerLargeTitle: true,
           }}
         />
         <Stack.Screen

@@ -46,7 +46,7 @@ export function ImagePicker({ imageUri, onImageSelected }: ImagePickerProps) {
 
   if (imageUri) {
     return (
-      <View className="rounded-2xl overflow-hidden bg-gray-100">
+      <View className="rounded-xl overflow-hidden bg-surface-elevated border border-border-subtle">
         <Image
           source={{ uri: imageUri }}
           className="w-full h-72"
@@ -58,12 +58,14 @@ export function ImagePicker({ imageUri, onImageSelected }: ImagePickerProps) {
 
   return (
     <View className="items-center gap-4">
-      <View className="w-full items-center justify-center border-2 border-dashed border-gray-300 rounded-2xl py-16 px-8">
-        <Text className="text-5xl mb-4">🌿</Text>
-        <Text className="text-lg font-semibold text-gray-700 text-center mb-1">
+      <View className="w-full items-center justify-center border border-dashed border-border rounded-xl py-14 px-8">
+        <View className="w-12 h-12 rounded-full bg-surface-elevated items-center justify-center mb-3">
+          <Text className="text-xl">🌿</Text>
+        </View>
+        <Text className="text-[15px] font-semibold text-text-secondary text-center mb-1">
           Scan a Plant Leaf
         </Text>
-        <Text className="text-sm text-gray-400 text-center">
+        <Text className="text-[12px] text-text-tertiary text-center">
           Take a photo or choose from gallery
         </Text>
       </View>
@@ -71,21 +73,21 @@ export function ImagePicker({ imageUri, onImageSelected }: ImagePickerProps) {
       <View className="flex-row gap-3 w-full">
         <TouchableOpacity
           onPress={takePhoto}
-          className="flex-1 bg-green-600 rounded-xl py-4 items-center"
+          className="flex-1 bg-accent rounded-xl py-3.5 items-center"
           activeOpacity={0.8}
         >
-          <Text className="text-white font-semibold text-base">
-            📷 Camera
+          <Text className="text-bg font-semibold text-[14px]">
+            Camera
           </Text>
         </TouchableOpacity>
 
         <TouchableOpacity
           onPress={pickFromGallery}
-          className="flex-1 bg-gray-200 rounded-xl py-4 items-center"
+          className="flex-1 bg-surface-elevated border border-border-subtle rounded-xl py-3.5 items-center"
           activeOpacity={0.8}
         >
-          <Text className="text-gray-700 font-semibold text-base">
-            🖼️ Gallery
+          <Text className="text-text-secondary font-semibold text-[14px]">
+            Gallery
           </Text>
         </TouchableOpacity>
       </View>

@@ -37,64 +37,65 @@ export default function HomeScreen() {
   }, [result]);
 
   return (
-    <View className="flex-1 bg-green-50">
+    <View className="flex-1 bg-bg">
       <ScrollView
         className="flex-1"
-        contentContainerClassName="p-5 pb-10"
+        contentContainerClassName="px-5 pt-4 pb-10"
         keyboardShouldPersistTaps="handled"
       >
-        {/* Title Section */}
+        {/* Header */}
         <View className="mb-6">
-          <Text className="text-3xl font-bold text-gray-900">
-            Plant Disease{"\n"}Detection
+          <Text className="text-[26px] font-extrabold text-text-primary tracking-tight">
+            Identify Plant{"\n"}Diseases
           </Text>
-          <Text className="text-base text-gray-500 mt-2">
-            Upload or capture a plant leaf image to identify diseases
+          <Text className="text-[15px] text-text-secondary mt-2 leading-relaxed">
+            Upload or capture a leaf image to get an instant AI diagnosis.
           </Text>
         </View>
 
-        {/* Image Picker */}
-        <View className="bg-white rounded-2xl p-5 shadow-sm mb-5">
-          <ImagePicker
-            imageUri={imageUri}
-            onImageSelected={handleImageSelected}
-          />
+        {/* Image Picker Card */}
+        <View className="bg-surface rounded-2xl border border-border-subtle overflow-hidden mb-4">
+          <View className="px-5 pt-4 pb-3 flex-row items-center justify-between">
+            <Text className="text-[11px] font-semibold text-text-tertiary uppercase tracking-widest">
+              Plant Image
+            </Text>
+            {imageUri && (
+              <TouchableOpacity onPress={handleReset} activeOpacity={0.7}>
+                <Text className="text-[12px] text-text-tertiary">Reset</Text>
+              </TouchableOpacity>
+            )}
+          </View>
+          <View className="px-5 pb-5">
+            <ImagePicker
+              imageUri={imageUri}
+              onImageSelected={handleImageSelected}
+            />
+          </View>
         </View>
 
         {/* Error */}
         {error && (
-          <View className="mb-5">
+          <View className="mb-4">
             <ErrorBanner message={error} onDismiss={reset} />
           </View>
         )}
 
-        {/* Action Buttons */}
+        {/* Analyze Button */}
         {imageUri && (
-          <View className="gap-3">
-            <TouchableOpacity
-              onPress={handleAnalyze}
-              disabled={loading}
-              className={`rounded-xl py-4 items-center ${
-                loading ? "bg-gray-400" : "bg-green-600"
+          <TouchableOpacity
+            onPress={handleAnalyze}
+            disabled={loading}
+            className={`rounded-xl py-4 items-center flex-row justify-center gap-2 ${loading ? "bg-surface-elevated" : "bg-accent"
               }`}
-              activeOpacity={0.8}
+            activeOpacity={0.8}
+          >
+            <Text
+              className={`font-bold text-[15px] ${loading ? "text-text-tertiary" : "text-bg"
+                }`}
             >
-              <Text className="text-white font-bold text-lg">
-                {loading ? "Analyzing..." : "Analyze Disease"}
-              </Text>
-            </TouchableOpacity>
-
-            <TouchableOpacity
-              onPress={handleReset}
-              disabled={loading}
-              className="bg-gray-200 rounded-xl py-4 items-center"
-              activeOpacity={0.8}
-            >
-              <Text className="text-gray-700 font-semibold text-base">
-                Reset
-              </Text>
-            </TouchableOpacity>
-          </View>
+              {loading ? "Analyzing…" : "Analyze Disease"}
+            </Text>
+          </TouchableOpacity>
         )}
       </ScrollView>
 

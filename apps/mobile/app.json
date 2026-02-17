@@ -2,7 +2,7 @@
   "expo": {
     "name": "CropIntel",
     "slug": "cropintel-mobile",
-    "version": "2.0.0",
+    "version": "2.0.1",
     "orientation": "portrait",
     "icon": "./assets/icon.png",
     "scheme": "cropintel",
@@ -27,7 +27,10 @@
         "backgroundColor": "#f0fdf4"
       },
       "package": "com.cropintel.mobile",
-      "permissions": ["CAMERA", "READ_EXTERNAL_STORAGE"]
+      "permissions": [
+        "CAMERA",
+        "READ_EXTERNAL_STORAGE"
+      ]
     },
     "plugins": [
       "expo-router",

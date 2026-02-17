@@ -16,9 +16,9 @@ interface ConfidenceBarProps {
 
 export function ConfidenceBar({
   score,
-  height = 6,
-  color = "#16a34a",
-  backgroundColor = "#e5e7eb",
+  height = 5,
+  color = "#2dd4a8",
+  backgroundColor = "#1c2230",
 }: ConfidenceBarProps) {
   const width = useSharedValue(0);
 
